@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookController!{% endblock %}
+
+{% block body %}
+{% include "layout/nav.html.twig" %}
+
+<div class="container">
+    <div class="row">
+        <div class="example-wrapper">
+            <h1>Les oeuvres complètes</h1>
+
+                {% for book in books %}
+                    {% set author = book.author %}
+
+                        <div class="card md-2" style="width: 18rem;">
+                            {% if book.cover is empty %}
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDA1jqKmb5uzc06apeA76l1DrSVOjEOm_RyX-ZfQHG_aaareK13Q&s" class="card-img-top"  alt="...">
+                            {% else %}
+                                <img src="{{ book.cover }}" class="card-img-top" style="width: 14.063em; margin-left: auto; margin-right: auto;" alt="...">
+                            {% endif %} 
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ book.title}}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+
+                        {% for auth in book.author %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">de {{ auth.firstname}} {{ auth.name}}, 
+                        {% endfor %} <span>{{ book.publicationDate}}</span></li>
+                        </ul>
+                        
+                        <div class="card-body">
+                            <a href="#" class="card-link">Voir l'oeuvre</a>
+                            <a href="#" class="card-link">Voir l'image</a>
+                        </div>
+                        </div>
+                {% endfor %}
+        
+        </div>
+    </div>
+</div>
+{% include "layout/footer.html.twig" %}
+{% endblock %}
