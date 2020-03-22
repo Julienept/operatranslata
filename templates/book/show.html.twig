@@ -1,0 +1,202 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block body %}
+{% include "layout/nav.html.twig" %}
+
+<div class="container my-5">
+
+  <section>
+    
+    <div class="card mb-4">
+      
+      <div class="row">
+
+        <div class="col-md-6">
+          <img class="img-fluid rounded-left" src="https://zupimages.net/up/20/12/tg91.jpg" alt="project image">
+        </div>
+
+        <div class="col-md-6 p-5 align-self-center">
+
+          <h5 class="font-weight-normal mb-3">{{ book.title}}</h5>
+
+          <p class="text-muted">{{ book.description}}</p>
+
+          <ul class="list-unstyled font-small mt-5 mb-0">
+            
+            {% for author in book.author %}
+            <li>
+              <p class="text-uppercase mb-2"><strong>Auteur</strong></p>
+              <p class="text-muted mb-4">{{ author.firstname }} {{ author.name }}</p>
+              
+            </li>
+
+             <li>
+              <p class="text-uppercase mb-2"><strong>Epoque</strong></p>
+              <p class="text-muted mb-4">{{ author.period }}ème siècle</p>
+            </li>
+            {% endfor %}
+
+            <li>
+              <p class="text-uppercase mb-2"><strong>Date de publication</strong></p>
+              <p class="text-muted mb-4">{{ book.publicationDate}}</p>
+            </li>           
+
+            <li>
+              <p class="text-uppercase mb-2"><strong>Thème</strong></p>
+              <a href="https://mdbootstrap.com/docs/jquery/design-blocks/">{{ book.theme.name }}</a>
+            </li>
+{# 
+            <li>
+              <p class="text-uppercase mt-4 mb-2"><strong>Share</strong></p>
+              <div class="d-flex justify-content-start">
+                <a class="text-muted pr-3" href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="text-muted pr-3" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="text-muted pr-3" href="#"><i class="fab fa-instagram"></i></a>
+                <a class="text-muted" href="#"><i class="fab fa-dribbble"></i></a>
+              </div>
+            </li> #}
+
+            </br>
+            {# En cliquant dessus, fait apparaître la balise embed #}
+            <li><a href="#" class="btn btn-secondary">Lire l'oeuvre</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="container my-5">
+
+
+  <!--Section: Content-->
+  <section class="text-center dark-grey-text">
+    
+    <style>
+      .carousel-multi-item.v-2 .carousel-inner .carousel-item.active,
+      .carousel-multi-item.v-2 .carousel-item-next,
+      .carousel-multi-item.v-2 .carousel-item-prev {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex; }
+      .carousel-multi-item.v-2 .carousel-item-right.active,
+      .carousel-multi-item.v-2 .carousel-item-next {
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%); }
+      .carousel-multi-item.v-2 .carousel-item-left.active,
+      .carousel-multi-item.v-2 .carousel-item-prev {
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%); }
+      .carousel-multi-item.v-2 .carousel-item-right,
+      .carousel-multi-item.v-2 .carousel-item-left {
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0); }
+    </style>
+    
+    <h5 class="font-weight-bold pb-4 mb-0 text-center">Les illustrations présentes dans cette oeuvre : </h5>
+
+    <div class="row">
+      <div class="col-md-12">
+
+        <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
+
+          <!--Controls-->
+          <div class="controls-top">
+            <a class="btn-floating bg-transparent z-depth-0 m-0" href="#carousel-example-multi" data-slide="prev"><i class="dark-grey-text fas fa-chevron-left"></i></a>
+            <a class="btn-floating bg-transparent z-depth-0 m-0" href="#carousel-example-multi" data-slide="next"><i class="dark-grey-text fas fa-chevron-right"></i></a>
+          </div>
+          <!--/.Controls-->
+
+          <div class="carousel-inner" role="listbox">
+
+            <div class="carousel-item active">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(150).jpg" class="img-fluid rounded" alt="Sample image">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(146).jpg" class="img-fluid rounded" alt="Sample image">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(138).jpg" class="img-fluid rounded" alt="Sample image">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(133).jpg" class="img-fluid rounded" alt="Sample image">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(148).jpg" class="img-fluid rounded" alt="Sample image">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(131).jpg" class="img-fluid rounded" alt="Sample image">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <!--Section: Content-->
+
+
+</div>
+
+    {# <embed src="http://ife.ens-lyon.fr/publications/edition-electronique/aster/RA026-02.pdf" width="1000" height="900" type='application/pdf'> #}
+
+  </section>
+
+</div>
+
+
+
+{% include "layout/footer.html.twig" %}
+
+<script>
+$('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+
+  for (var i = 0; i < 4; i++) {
+    next = next.next();
+    if (!next.length) {
+      next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+  }
+});</script>
+{% endblock %}
+

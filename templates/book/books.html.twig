@@ -1,45 +1,61 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BookController!{% endblock %}
+{% block title %}Les oeuvres complètes{% endblock %}
 
 {% block body %}
 {% include "layout/nav.html.twig" %}
+<div class="container my-5">
 
-<div class="container">
+
+  <!-- Section: Block Content -->
+  <section class="dark-grey-text text-center">
+
+    <h6 class="font-weight-bold text-center grey-text text-uppercase small mb-4">recherche</h6>
+    <h3 class="font-weight-bold text-center dark-grey-text pb-2">Oeuvres complètes</h3>
+    <hr class="w-header my-4">
+
+    <!-- First row -->
     <div class="row">
-        <div class="example-wrapper">
-            <h1>Les oeuvres complètes</h1>
 
-                {% for book in books %}
-                    {% set author = book.author %}
+      
 
-                        <div class="card md-2" style="width: 18rem;">
-                            {% if book.cover is empty %}
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDA1jqKmb5uzc06apeA76l1DrSVOjEOm_RyX-ZfQHG_aaareK13Q&s" class="card-img-top"  alt="...">
-                            {% else %}
-                                <img src="{{ book.cover }}" class="card-img-top" style="width: 14.063em; margin-left: auto; margin-right: auto;" alt="...">
-                            {% endif %} 
+        {% for book in books %}
+     <!-- Card -->
+     <div class="col-lg-4 col-md-6 mb-4">
+            <a class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
 
-                        <div class="card-body">
-                            <h5 class="card-title">{{ book.title}}</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
+              <!-- Card image -->
+              <img class="card-img-top" src="{{ book.cover }}" alt="Card image cap">
 
-                        {% for auth in book.author %}
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">de {{ auth.firstname}} {{ auth.name}}, 
-                        {% endfor %} <span>{{ book.publicationDate}}</span></li>
-                        </ul>
-                        
-                        <div class="card-body">
-                            <a href="#" class="card-link">Voir l'oeuvre</a>
-                            <a href="#" class="card-link">Voir l'image</a>
-                        </div>
-                        </div>
+              <!-- Card content -->
+              <div class="card-body">
+
+                <h5 class="my-3">{{ book.title}}</h5>
+                {% for author in book.author %}
+                <p class="card-text text-center mb-3">{{ author.firstname}} {{ author.name}}</p>
                 {% endfor %}
-        
-        </div>
+                <p class="card-text text-uppercase mb-3">{{ book.publicationDate}}</p>
+
+              </div>
+
+            </a>
+            <!-- Card -->
     </div>
+        {% endfor %}
+      
+      <!-- First column -->
+
+  
+
+    </div>
+    <!-- First row -->
+
+  </section>
+  <!-- Section: Block Content -->
+  
+  
 </div>
+
+ 
 {% include "layout/footer.html.twig" %}
 {% endblock %}
