@@ -10,7 +10,7 @@ use App\Entity\Book;
 class BookController extends AbstractController
 {
     /**
-     * @Route("/books", name="book")
+     * @Route("/books", name="books")
      */
     public function index(BookRepository $repo)
     {
