@@ -29,8 +29,8 @@
 
               <!-- Card content -->
               <div class="card-body">
-
-                <h5 class="my-3">{{ book.title}}</h5>
+    
+                <h5 class="my-3"><a href="{{ path('book_show', {'id': book.id} )}}">{{ book.title}}</a></h5>
                 {% for author in book.author %}
                 <p class="card-text text-center mb-3">{{ author.firstname}} {{ author.name}}</p>
                 {% endfor %}

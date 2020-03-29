@@ -60,7 +60,7 @@
 
             </br>
             {# En cliquant dessus, fait apparaître la balise embed #}
-            <li><a href="#" class="btn btn-secondary">Lire l'oeuvre</a></li>
+            <li><a href="javascript:displayBook()" class="btn btn-secondary">Lire l'oeuvre</a></li>
           </ul>
 
         </div>
@@ -172,7 +172,8 @@
 
 </div>
 
-    {# <embed src="http://ife.ens-lyon.fr/publications/edition-electronique/aster/RA026-02.pdf" width="1000" height="900" type='application/pdf'> #}
+    {% include "book/read_book.html.twig" %}
+
 
   </section>
 
