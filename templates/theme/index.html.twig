@@ -27,15 +27,25 @@
         
         <!--First column-->
         <div class="col-12">
-          
+          {# {{ dump(result)}} #}
           <!-- Nav tabs -->
+          
+          {% set active = 'active' %}
+          {% set get = app.request.attributes.get('themeName') %}
+
           <ul class="nav md-pills flex-center flex-wrap mx-0" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active font-weight-bold" data-toggle="tab" href="#panel31" role="tab">Tout voir</a>
+            {% set theme = 'Tout voir' %}
+
+              <a href="{{ path('themes', {'themeName': 'all'})}}" 
+              class="nav-link font-weight-bold {% if theme == 'Tout voir' and get == 'all' %}
+              {{ active }} {% endif %}" role="tab">{{ theme }}</a>
             </li>
+            
             {% for themeName in themes %}
+            
             <li class="nav-item">
-              <a class="nav-link font-weight-bold" data-toggle="tab" href="#panel32" role="tab">{{ themeName.name }}</a>
+              <a class="nav-link font-weight-bold {% if get == themeName.id %} {{active}} {% endif %}"  href="{{ path('themes', {'themeName': themeName.id})}}" role="tab">{{ themeName.name }}</a>
             </li>
             {% endfor %}
             
@@ -55,15 +65,14 @@
 
         <!--First row-->
         <div class="row">
-          
+          {% if images|length > 0 %}
           {% for image in images %}
           <!--First column-->
           <div class="col-lg-4 col-md-12 mb-4">
             <!--Featured image-->
-            {% set url = 'images/LDOEHEM/' ~ image.url ~ '.jpg' %}
-            {{ dump(image)}}
+            {# {{ dump(image)}} #}
             <div class="view overlay zoom z-depth-2">
-              <img src="{{ asset(url)}}" class="img-fluid">
+              <img src="{{ asset(image.imgUrl)}}" class="img-fluid"> 
             </div>
             <p class="text-uppercase text-center font-weight-bold text-muted my-4">{{ image.title}}</p>
             <p class="text-center text-muted my-4">Issue du livre <em>{{ image.book.title }}</em>, page n°{{ image.pageNumber }}</p>
@@ -74,6 +83,10 @@
           
         </div>
         <!--First row-->
+         {% else %}
+
+        <p>Votre recherche n'a donné aucun résultat.</p>
+        {% endif %}
 
       </div>
       <!--Panel 1-->
