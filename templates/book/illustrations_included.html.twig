@@ -1,0 +1,87 @@
+<div class="container mt-5">
+
+
+  <!--Section: Content-->
+  <section class="dark-grey-text text-center">
+
+    <style>
+      .md-pills .nav-link.active {
+        background-color: #3f51b5;
+      }
+    </style>
+    
+    <!-- Section heading -->
+    <h3 class="font-weight-bold mb-4 pb-2">Les illustrations présentes dans cette oeuvre : </h3>
+    <!-- Section description -->
+    
+    <!--First row-->
+    
+    <!--Tab panels-->
+    <div class="tab-content">
+
+      <!--Panel 1-->
+      <div class="tab-pane fade show in active" id="panel31" role="tabpanel">
+
+        <!--First row-->
+        <div class="row justify-content-center">
+          
+          {% for image in book.images %}
+          <!--First column-->
+          <div class="col-xs-6">
+            <!--Featured image-->
+            <div class="view overlay zoom z-depth-2">
+              <img src="{{ asset(image.imgUrl) }}" class="{{ image.title }}">
+            </div>
+            <p class="text-uppercase text-center font-weight-bold text-muted my-4">{{ image.title }}</p>
+          </div>
+          <!--First column-->
+          {% endfor %}
+  
+          
+        </div>
+        <!--First row-->
+
+      </div>
+      <!--Panel 1-->
+
+    </div>
+    <!--Tab panels-->
+
+	</section>
+  
+  
+</div>
+
+  <!--Section: Content-->
+  <section class="text-center dark-grey-text">
+    
+    <style>
+      .carousel-multi-item.v-2 .carousel-inner .carousel-item.active,
+      .carousel-multi-item.v-2 .carousel-item-next,
+      .carousel-multi-item.v-2 .carousel-item-prev {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex; }
+      .carousel-multi-item.v-2 .carousel-item-right.active,
+      .carousel-multi-item.v-2 .carousel-item-next {
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%); }
+      .carousel-multi-item.v-2 .carousel-item-left.active,
+      .carousel-multi-item.v-2 .carousel-item-prev {
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%); }
+      .carousel-multi-item.v-2 .carousel-item-right,
+      .carousel-multi-item.v-2 .carousel-item-left {
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0); }
+    </style>
+    
+    {# <h3 class="font-weight-bold pb-4 mb-0 text-center">Gallery</h3> #}
+
+
+  </section>
+  <!--Section: Content-->

@@ -64,6 +64,11 @@ class Book
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $translated;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -216,6 +221,18 @@ class Book
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getTranslated(): ?bool
+    {
+        return $this->translated;
+    }
+
+    public function setTranslated(bool $translated): self
+    {
+        $this->translated = $translated;
 
         return $this;
     }
