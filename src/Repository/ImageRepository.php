@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Image;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use \PDO;
 
 /**
  * @method Image|null find($id, $lockMode = null, $lockVersion = null)
@@ -22,19 +23,18 @@ class ImageRepository extends ServiceEntityRepository
     // /**
     //  * @return Image[] Returns an array of Image objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByTheme($value)
     {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('i.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        return $this->createQueryBuilder('image')
+        ->andWhere('image.theme = :value')
+        ->setParameter('value', $value)
+        ->leftJoin('image.theme', 'theme_id')
+        ->getQuery()
+        ->execute();
+
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Image

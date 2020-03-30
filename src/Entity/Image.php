@@ -3,6 +3,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\Asset\Package;
+use Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ImageRepository")
@@ -42,6 +46,48 @@ class Image
      * @ORM\Column(type="string", length=255)
      */
     private $url;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $bookInitials;
+    
+    private $imgUrl;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+    // public function __construct()
+    // {
+    //    $this->setImgUrl();
+    // }
+
+    public function defineImgUrl()
+    {
+        $finder = new Finder();
+        // find all files in the current directory
+
+            $folder = 'images/'. $this->bookInitials .'/';
+
+            //var_dump($folder);
+            
+            $finder->files()->in($folder);
+
+                if ($finder->hasResults()) 
+                {
+                    $this->imgUrl = $folder . $this->url.'.jpg';    
+
+
+                }
+    
+    }
+
+    
+    public function __toString(): string
+    {
+        return $this->getUrl();
+    }
 
     public function getId(): ?int
     {
@@ -107,4 +153,42 @@ class Image
 
         return $this;
     }
+
+    public function getImgUrl(): ?string
+    {
+        return $this->imgUrl;
+    }
+
+    public function setImgUrl(string $imgUrl): self
+    {
+        $this->imgUrl = $imgUrl;
+
+        return $this;
+    }
+
+    public function getBookInitials(): ?string
+    {
+        return $this->bookInitials;
+    }
+
+    public function setBookInitials(string $bookInitials): self
+    {
+        $this->bookInitials = $bookInitials;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+ 
+
 }

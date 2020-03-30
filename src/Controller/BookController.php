@@ -30,6 +30,12 @@ class BookController extends AbstractController
      */
     public function show(Book $book){
 
+        foreach($book->getImages() as $images)
+        {
+            $images->defineImgUrl();
+            
+        }
+
         return $this->render('book/show.html.twig', [
             'book' => $book
         ]);
