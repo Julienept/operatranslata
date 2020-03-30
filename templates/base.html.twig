@@ -2,11 +2,25 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}opera translata{% endblock %}</title>
+        {% block stylesheets %}
+          <link rel="icon" type="image/x-icon" href="{{ asset('images/icon/castle2.svg')}}" />
+          {# <img src="{{ asset('images/icon/castle2.svg')}}" style="width: 2.5em; margin-right: 1em;"></img> #}
+      <link href="/css/full-width-pics.css" rel="stylesheet">
+
+        <link rel="shortcut icon" href="{{ asset('images/icon/castle2.svg')}}">
+        
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/opera.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">{% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
+

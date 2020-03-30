@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ThemeController!{% endblock %}
+{% block title %}Les illustrations{% endblock %}
 
 {% block body %}
 {% include "layout/nav.html.twig" %}
@@ -27,7 +27,7 @@
         
         <!--First column-->
         <div class="col-12">
-          {# {{ dump(result)}} #}
+
           <!-- Nav tabs -->
           
           {% set active = 'active' %}
@@ -72,7 +72,7 @@
             <!--Featured image-->
             {# {{ dump(image)}} #}
             <div class="view overlay zoom z-depth-2">
-              <img src="{{ asset(image.imgUrl)}}" class="img-fluid"> 
+              <a href="{{ path('show_illustration', {'id': image.id})}}"><img src="{{ asset(image.imgUrl)}}" class="img-fluid"></a>
             </div>
             <p class="text-uppercase text-center font-weight-bold text-muted my-4">{{ image.title}}</p>
             <p class="text-center text-muted my-4">Issue du livre <em>{{ image.book.title }}</em>, page n°{{ image.pageNumber }}</p>

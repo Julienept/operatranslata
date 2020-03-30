@@ -53,6 +53,11 @@ class Image
     private $bookInitials;
     
     private $imgUrl;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
     // public function __construct()
     // {
     //    $this->setImgUrl();
@@ -169,6 +174,18 @@ class Image
     public function setBookInitials(string $bookInitials): self
     {
         $this->bookInitials = $bookInitials;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
