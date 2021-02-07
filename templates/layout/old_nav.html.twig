@@ -1,20 +1,43 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">opera translata</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light scrolling-navbar" style="margin-top: -45px">
+      <div class="row nav-content">
+
+        <!-- Brand -->
+        <div class="col-brand">
+            <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
+              <img src="{{ asset('images/icon/castle2.svg')}}" style="width: 3em"; alt="Logo">
+            </a>
+              <a href="{{ path('home')}}" class="navbar-brand">opera translata</a>
+        </div>
+
+       <!-- Search form -->
+        <div class="col-search">
+              <input class="form-modify" type="text" placeholder="Search" aria-label="Search">
+              <i class="fas fa-search" aria-hidden="true"></i>
+        </div>
+         
+
+      </div>
+    </nav>
+<!-- Navbar -->
+
+    <section class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" style="margin-left: 15em" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarColor02">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
+    <ul class="navbar-nav mr-auto modify-j">
+    
+    <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="typeDropDown">Par types</a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="typeDropDown">
                             <a href="{{ path('themes', {'themeName': 'all'}) }}" class="dropdown-item">Illustrations</a>
                             <a href="{{ path('books')}}" class="dropdown-item">Livres complets</a>
                 </div>
-      </li>
-      <li class="nav-item dropdown">
+        </li>
+        <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themeDropDown">Par thèmes</a>
             {% set themes = app.session.get('themesNav') %}
 
@@ -24,7 +47,11 @@
                 {% endfor %}
                 </div>
         </li>
-      <li class="nav-item dropdown">
+      {# <li class="nav-item active">
+        {# <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> #}
+       
+
+        <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="typeDropDown">Par auteurs</a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="typeDropDown">
@@ -32,7 +59,7 @@
                             <a href="#" class="dropdown-item">Ajouter</a>
                 </div>
         </li>
-      <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="typeDropDown">Derniers ajouts</a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="typeDropDown">
@@ -45,17 +72,13 @@
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="typeDropDown">
                             <a href="#" class="dropdown-item">Soumettre un ouvrage à traduire</a>
-                             <div class="dropdown-divider"></div>
                             <a href="#" class="dropdown-item">Signaler une erreur</a>
                             <a href="#" class="dropdown-item">Nous contacter</a>
                 </div>
         </li>
-        </div>
-      </li>
+
+   
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Rechercher">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-    </form>
+   
   </div>
-</nav>
+</section>
